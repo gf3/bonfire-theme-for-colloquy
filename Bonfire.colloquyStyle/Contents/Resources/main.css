@@ -1,0 +1,184 @@
+/*  Based on Fiat - by dzhim and nsraffy  */
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #4b4b4b;
+  background-color: #FFF;
+  font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+a img {
+  border: 0;
+}
+
+img {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left:8px;
+  max-width: 100%;
+}
+
+a:link, a:visited, a:hover, a:active { color: #03C; }
+a:hover {
+  text-shadow: rgba(0, 0, 0, .3) 0 1px 1px;
+}
+
+.hidden {
+  position: fixed;
+  top: -900px;
+  left: -900px;
+}
+
+#consecutiveInsert {
+  display: none;
+}
+
+.error:before {
+  content: "(";
+}
+
+.error:after {
+  content: ")";
+}
+
+.header_top {
+  display: none;
+
+}
+
+/* ------------------------------ Event ------------------------------ */
+.event {
+  display: block;
+  padding: 5px 0 5px 110px;
+  border-top: #FFF 1px solid;
+  background-color: #d9e7fb;
+  border-bottom: #FFF 1px solid;
+  color: #363636;
+  font-size:0.75em;
+  text-shadow: rgba(255, 255, 255, 1) 0 1px 1px;
+}
+
+.event + .event {
+  border-top: none;
+}
+
+.event .time {
+  margin: 0 4px;
+  padding: 0;
+  display: block;
+  float: left;
+  color: #333333;
+  width:100px;
+  text-align:right;
+}
+
+.event .message {
+  margin: 0;
+  padding-left: 5px;
+  color: #303030;
+  word-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-nbsp-mode: space;
+}
+
+.event a {
+  color: #404040;
+}
+
+/* ------------------------------ Page ------------------------------ */
+#contents {
+  display: table;
+  width: 100%;
+  background-color: #FFF;
+}
+
+/* ------------------------------ Envelope ------------------------------ */
+.envelope {
+  display: table-row;
+  width: 100%;
+}
+
+/* ------------------------------ Message ------------------------------ */
+.envelope .message {
+  width: 100%;
+}
+
+.envelope .message .meta, .envelope .message .content {
+  display: table-cell;
+  line-height: 1.4em;  
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  margin-bottom: 0px;
+  word-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-nbsp-mode: space;
+}
+
+.envelope .message .meta {
+  min-width: 100px;
+  border-right: 1px solid #B3B3B3;
+  text-align: right;
+  background-color: #EFEFEF;
+}
+
+.envelope .message .meta .time {
+  position: fixed;
+  top: -900px;
+  left: -900px;
+}
+
+strong { display: none; } /* TEMP */
+
+.envelope .message .meta .sender {
+  display: inline;
+  padding-right: 10px;
+}
+
+.envelope .message .meta .sender a {
+  color: #666;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 1) 0 1px 1px;
+}
+
+.envelope .message.submessage .meta .sender {
+  position: fixed;
+  top: -900px;
+  left: -900px;
+}
+
+.envelope .message .content {
+  width: 100%;
+  border-bottom: #EFEFEF 1px solid;
+}
+
+/* ------------------------------ Incoming ------------------------------ */
+.envelope .message.incoming {
+}
+
+/* ------------------------------ Highlighted ------------------------------ */
+.envelope .message.highlight .content {
+  background-color: #FFC;
+}
+
+.envelope .message.highlight .content .highlight {
+  font-weight: bold;
+}
+
+/* ------------------------------ Outgoing ------------------------------ */
+.envelope .message.outgoing {
+}
+
+/* ------------------------------ Member Link ------------------------------ */
+.member {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.member:hover {
+  text-decoration: underline;
+}
