@@ -123,8 +123,8 @@
             </xsl:if>
             <xsl:apply-templates select="message[not( @ignored = 'yes' )][1]/child::node()" mode="copy" />
           </div>
-          <xsl:apply-templates select="message[not( @ignored = 'yes' )][position() &gt; 1]" />
         </div>
+        <xsl:apply-templates select="message[not( @ignored = 'yes' )][position() &gt; 1]" />
         <xsl:if test="position() = last()">
           <span id="consecutiveInsert">&#8203;</span>
         </xsl:if>
