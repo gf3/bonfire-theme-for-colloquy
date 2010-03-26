@@ -21,20 +21,16 @@
       </xsl:call-template>
     </xsl:variable>
 
-    <span class="event">
-      <span class="hidden">[<xsl:value-of select="$timestamp" />] </span>
-      <xsl:apply-templates select="message/child::node()" mode="copy" />
-      <xsl:text> (</xsl:text>
-      <xsl:value-of select="$timestamp" />
-      <xsl:text>) </xsl:text>
-      <xsl:if test="string-length( reason )">
-        <span class="reason">
-          <xsl:text>Reason: </xsl:text>
-          <xsl:apply-templates select="reason/child::node()" mode="copy"/>
-        </span>
-      </xsl:if>
-      <br />
-    </span>
+    <div class="event">
+      <span class="time"><xsl:value-of select="$timestamp" /> </span>
+      <span class="content">
+        <xsl:apply-templates select="message/child::node()" mode="copy" />
+        <xsl:if test="string-length( reason )">
+          <xsl:text> </xsl:text>
+          <span class="reason"><xsl:apply-templates select="reason/child::node()" mode="copy" /></span>
+        </xsl:if>
+      </span>
+    </div>
   </xsl:template>
 
   <xsl:template match="message">
@@ -64,8 +60,7 @@
             </xsl:call-template>
           </xsl:variable>
 
-          <strong>(open message)</strong>
-          <div class="message submessage {$messageClass}">
+          <div class="message {$messageClass}">
             <div class="meta">
               <span class="time">[<xsl:value-of select="$timestamp" />] </span>
               <xsl:if test="not( @action = 'yes' )"><span class="sender"><a href="member:{../sender}" class="name"><xsl:value-of select="../sender" /></a><span class="hidden">: </span></span></xsl:if>
@@ -74,14 +69,13 @@
               <xsl:if test="@action = 'yes'">
                 <xsl:text>&#8226; </xsl:text>
                 <a href="member:{../sender}" class="member action">
-                <xsl:value-of select="../sender" />
+                  <xsl:value-of select="../sender" />
                 </a>
                 <xsl:text> </xsl:text>
               </xsl:if>
               <xsl:apply-templates select="child::node()" mode="copy" />
             </div>
           </div>
-          <strong>(close message)</strong>
           <xsl:if test="not( $bulkTransform = 'yes' )">
             <xsl:processing-instruction name="message">type="subsequent"</xsl:processing-instruction>
             <span id="consecutiveInsert">&#8203;</span>
@@ -113,13 +107,11 @@
         </xsl:call-template>
       </xsl:variable>
 
-      <strong>(open envelope)</strong>
       <div id="{@id}" class="envelope">
-        <strong>(open first message)</strong>
-        <div class="message first {$messageClass}">
+        <div class="message {$messageClass}">
           <div class="meta">
             <span class="time">[<xsl:value-of select="$timestamp" />] </span>
-            <span class="sender"><a href="member:{sender}" class="name"><xsl:value-of select="sender" /></a><span class="hidden">: </span></span>
+            <xsl:if test="not( @action = 'yes' )"><span class="sender"><a href="member:{sender}" class="name"><xsl:value-of select="sender" /></a><span class="hidden">: </span></span></xsl:if>
           </div>
           <div class="content">
             <xsl:if test="message[not( @ignored = 'yes' )][1]/@action = 'yes'">
@@ -129,18 +121,45 @@
               </a>
               <xsl:text> </xsl:text>
             </xsl:if>
+            <xsl:apply-templates select="message[not( @ignored = 'yes' )][1]/child::node()" mode="copy" />
           </div>
-          <xsl:apply-templates select="message[not( @ignored = 'yes' )][1]/child::node()" mode="copy" />
+          <xsl:apply-templates select="message[not( @ignored = 'yes' )][position() &gt; 1]" />
         </div>
-        <strong>(close first message)</strong>
-        <xsl:apply-templates select="message[not( @ignored = 'yes' )][position() &gt; 1]" />
         <xsl:if test="position() = last()">
           <span id="consecutiveInsert">&#8203;</span>
         </xsl:if>
       </div>
-      <strong>(close envelope)</strong>
     </xsl:if>
   </xsl:template>
+
+	<xsl:template match="a" mode="copy">
+		<xsl:variable name="extension" select="substring(@href,string-length(@href) - 3, 4)" />
+		<xsl:variable name="extensionLong" select="substring(@href,string-length(@href) - 4, 5)" />
+
+		<xsl:choose>
+			<xsl:when test="$extension = '.jpg' or $extension = '.JPG' or $extensionLong = '.jpeg' or $extensionLong = '.JPEG'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:when test="$extension = '.gif' or $extension = '.GIF'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:when test="$extension = '.png' or $extension = '.PNG'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:when test="$extension = '.tif' or $extension = '.TIF' or $extensionLong = '.tiff' or $extensionLong = '.TIFF'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:when test="$extension = '.pdf' or $extension = '.PDF'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:when test="$extension = '.bmp' or $extension = '.BMP'">
+				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:copy-of select="current()"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
 
   <xsl:template match="span[contains(@class,'member')]" mode="copy">
     <a href="member:{current()}" class="member"><xsl:value-of select="current()" /></a>
