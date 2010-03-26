@@ -1,6 +1,8 @@
+# Bonfire Theme
+
 A fork of the Campfire theme. Slightly more useful and slightly more sexy.
 
-# Installation
+## Installation
 
 1. Copy the file `Bonfire.colloquyStyle` to `~/Library/Application Support/Colloquy/Styles`
 2. Write `/reload style` in a colloquy window or restart Colloquy.
@@ -8,7 +10,7 @@ A fork of the Campfire theme. Slightly more useful and slightly more sexy.
 
 (If you want a similar theme for Adium, try http://github.com/watsonian/campfire-adium-message-style)
 
-# Contributors
+## Contributors
 
 Bonfire theme:
 
