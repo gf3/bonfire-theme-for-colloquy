@@ -2,7 +2,9 @@
 
 A fork of the Campfire theme. Slightly more useful and slightly more sexy.
 
-[Screenshot](http://grab.by/grabs/0b04c29f7d53ccfb652f6ab6ce510899.png)
+Screenshot:
+
+<img src="http://grab.by/grabs/082f72907f39aa195564ce53888bebe6.png" width="900" alt="Screenshot" />
 
 ## Installation
 
