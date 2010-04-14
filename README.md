@@ -4,7 +4,7 @@ A fork of the Campfire theme. Slightly more useful and slightly more sexy.
 
 Screenshot:
 
-<img src="http://grab.by/grabs/082f72907f39aa195564ce53888bebe6.png" width="900" alt="Screenshot" />
+<img src="http://img.gf3.ca/162cc1f444c410ca2701427b090c1874.png" width="900" alt="Screenshot" />
 
 ## Installation
 
