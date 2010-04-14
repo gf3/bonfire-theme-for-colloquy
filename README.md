@@ -2,6 +2,10 @@
 
 A fork of the Campfire theme. Slightly more useful and slightly more sexy.
 
+Screenshot:
+
+<img src="http://grab.by/grabs/082f72907f39aa195564ce53888bebe6.png" width="900" alt="Screenshot" />
+
 ## Installation
 
 1. Copy the file `Bonfire.colloquyStyle` to `~/Library/Application Support/Colloquy/Styles`
