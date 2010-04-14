@@ -49,6 +49,7 @@ a:hover {
 
 /* ------------------------------ Message ------------------------------ */
 .envelope .message {
+  position: relative;
   width: 100%;
 }
 
@@ -70,12 +71,15 @@ a:hover {
 }
 
 .envelope .message .meta .time {
-  position: fixed;
-  top: -900px;
-  left: -900px;
+  position: absolute;
+  display: block;
+  padding-top: 5px;
+  top: 0;
+  right: 10px;
+  font-weight: bold;
+  font-size: 10px;
+  color: #999;
 }
-
-strong { display: none; } /* TEMP */
 
 .envelope .message .meta .sender {
   position: fixed;

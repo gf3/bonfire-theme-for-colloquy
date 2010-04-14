@@ -62,7 +62,7 @@
 
           <div class="message {$messageClass}">
             <div class="meta">
-              <span class="time">[<xsl:value-of select="$timestamp" />] </span>
+              <span class="time"><xsl:value-of select="$timestamp" /> </span>
               <xsl:if test="not( @action = 'yes' )"><span class="sender"><a href="member:{../sender}" class="name"><xsl:value-of select="../sender" /></a><span class="hidden">: </span></span></xsl:if>
             </div>
             <div class="content">
@@ -110,7 +110,7 @@
       <div id="{@id}" class="envelope">
         <div class="message {$messageClass}">
           <div class="meta">
-            <span class="time">[<xsl:value-of select="$timestamp" />] </span>
+            <span class="time"><xsl:value-of select="$timestamp" /> </span>
             <xsl:if test="not( @action = 'yes' )"><span class="sender"><a href="member:{sender}" class="name"><xsl:value-of select="sender" /></a><span class="hidden">: </span></span></xsl:if>
           </div>
           <div class="content">
@@ -195,10 +195,10 @@
         <xsl:value-of select="$minute" />
         <xsl:choose>
           <xsl:when test="number($hour) &gt;= 12">
-      <xsl:text>PM</xsl:text>
+      <xsl:text>p</xsl:text>
           </xsl:when>
           <xsl:otherwise>
-      <xsl:text>AM</xsl:text>
+      <xsl:text>a</xsl:text>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
