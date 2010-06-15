@@ -132,34 +132,34 @@
     </xsl:if>
   </xsl:template>
 
-	<xsl:template match="a" mode="copy">
-		<xsl:variable name="extension" select="substring(@href,string-length(@href) - 3, 4)" />
-		<xsl:variable name="extensionLong" select="substring(@href,string-length(@href) - 4, 5)" />
+  <xsl:template match="a" mode="copy">
+    <xsl:variable name="extension" select="substring(@href,string-length(@href) - 3, 4)" />
+    <xsl:variable name="extensionLong" select="substring(@href,string-length(@href) - 4, 5)" />
 
-		<xsl:choose>
-			<xsl:when test="$extension = '.jpg' or $extension = '.JPG' or $extensionLong = '.jpeg' or $extensionLong = '.JPEG'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:when test="$extension = '.gif' or $extension = '.GIF'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:when test="$extension = '.png' or $extension = '.PNG'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:when test="$extension = '.tif' or $extension = '.TIF' or $extensionLong = '.tiff' or $extensionLong = '.TIFF'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:when test="$extension = '.pdf' or $extension = '.PDF'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:when test="$extension = '.bmp' or $extension = '.BMP'">
-				<a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" /></a>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:copy-of select="current()"/>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
+    <xsl:choose>
+      <xsl:when test="$extension = '.jpg' or $extension = '.JPG' or $extensionLong = '.jpeg' or $extensionLong = '.JPEG'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:when test="$extension = '.gif' or $extension = '.GIF'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:when test="$extension = '.png' or $extension = '.PNG'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:when test="$extension = '.tif' or $extension = '.TIF' or $extensionLong = '.tiff' or $extensionLong = '.TIFF'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:when test="$extension = '.pdf' or $extension = '.PDF'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:when test="$extension = '.bmp' or $extension = '.BMP'">
+        <a href="{@href}" title="{@href}"><img src="{@href}" width="300" alt="Loading Image..." onload="scrollToBottom()" onerror="scrollToBottom()" /></a>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="current()"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
   <xsl:template match="span[contains(@class,'member')]" mode="copy">
     <a href="member:{current()}" class="member"><xsl:value-of select="current()" /></a>

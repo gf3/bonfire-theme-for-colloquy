@@ -4,7 +4,7 @@ body {
   color: #4b4b4b;
   background-color: #FFF;
   font-family: "Lucida Grande", verdana, arial, helvetica, sans-serif;
-  font-size: 0.8em;
+  font-size: 12px;
 }
 
 a img {
@@ -58,7 +58,7 @@ a:hover {
   margin-bottom: 0px;
   padding: 4px 0 4px 4px;
   line-height: 1.4em;  
-  word-wrap: break-word;
+  word-wrap: break-word !important;
   -webkit-line-break: after-white-space;
   -webkit-nbsp-mode: space;
 }
@@ -101,7 +101,9 @@ a:hover {
 
 .envelope .message .content {
   width: 100%;
+  max-width: 100%;
   border-bottom: #EFEFEF 1px solid;
+  padding-right: 60px;
 }
 
 /* ------------------------------ Incoming ------------------------------ */

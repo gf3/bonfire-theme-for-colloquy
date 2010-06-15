@@ -1,0 +1,48 @@
+/* ------------------------------ Web Fonts ------------------------------ */
+@font-face {
+  font-family: 'DejaVuSansMonoBook';
+  src: url('DejaVuSansMono-webfont.eot');
+  src: local('☺'), url('DejaVuSansMono-webfont.woff') format('woff'), url('DejaVuSansMono-webfont.ttf') format('truetype'), url('DejaVuSansMono-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DejaVuSansMonoOblique';
+  src: url('DejaVuSansMono-Oblique-webfont.eot');
+  src: local('☺'), url('DejaVuSansMono-Oblique-webfont.woff') format('woff'), url('DejaVuSansMono-Oblique-webfont.ttf') format('truetype'), url('DejaVuSansMono-Oblique-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DejaVuSansMonoBold';
+  src: url('DejaVuSansMono-Bold-webfont.eot');
+  src: local('☺'), url('DejaVuSansMono-Bold-webfont.woff') format('woff'), url('DejaVuSansMono-Bold-webfont.ttf') format('truetype'), url('DejaVuSansMono-Bold-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DejaVuSansMonoBoldOblique';
+  src: url('DejaVuSansMono-BoldOblique-webfont.eot');
+  src: local('☺'), url('DejaVuSansMono-BoldOblique-webfont.woff') format('woff'), url('DejaVuSansMono-BoldOblique-webfont.ttf') format('truetype'), url('DejaVuSansMono-BoldOblique-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ------------------------------ Stylez ------------------------------ */
+body, body #contents, body #contents .envelope .message.content {
+  font-family: 'DejaVuSansMonoBook', Monaco;
+}
+
+body #contents .envelope .message.content {
+  white-space: pre-wrap;
+}
+
+.envelope .message .meta .time,
+.envelope .message .meta .sender a,
+.envelope .message.highlight .content .highlight {
+  font-weight: normal;
+  font-family: 'DejaVuSansMonoBold', Monaco;
+}
